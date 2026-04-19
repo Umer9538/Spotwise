@@ -1,0 +1,48 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    function isValidImageFile() {
+      return request.resource.contentType.matches('image/.*') &&
+             request.resource.size < 5 * 1024 * 1024; // 5MB limit
+    }
+
+    // Profile pictures
+    match /profile_pictures/{userId}.jpg {
+      // Anyone authenticated can read profile pictures
+      allow read: if isAuthenticated();
+
+      // Users can only upload their own profile picture
+      allow write: if isOwner(userId) && isValidImageFile();
+
+      // Users can delete their own profile picture
+      allow delete: if isOwner(userId);
+    }
+
+    // Zone images (admin only)
+    match /zone_images/{zoneId}/{imageId} {
+      // Anyone authenticated can read zone images
+      allow read: if isAuthenticated();
+
+      // Only admins can upload/delete zone images
+      // Note: This requires checking Firestore for admin role
+      // For simplicity, we'll allow authenticated users to read only
+      allow write, delete: if false; // Set to admin check in production
+    }
+
+    // Default: deny all access
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

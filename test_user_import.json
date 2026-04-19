@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "localId": "spotwise_test_user_001",
+      "email": "demo@psu.edu.sa",
+      "emailVerified": true,
+      "displayName": "Demo User",
+      "disabled": false,
+      "passwordHash": "UGFzc3dvcmQxMjM=",
+      "salt": "c2FsdA=="
+    }
+  ]
+}

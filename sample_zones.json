@@ -1,0 +1,104 @@
+[
+  {
+    "zoneId": "zone_male_a",
+    "zoneName": "Male Campus - Zone A",
+    "cameraId": "cam_001",
+    "totalSpots": 50,
+    "availableSpots": 35,
+    "occupiedSpots": 10,
+    "reservedSpots": 5,
+    "campus": "male",
+    "building": "Engineering Building",
+    "coordinates": {
+      "latitude": 24.7136,
+      "longitude": 46.6753
+    },
+    "features": ["Covered Parking", "CCTV Monitored", "Well Lit"],
+    "lastUpdated": "2025-01-22T09:00:00.000Z"
+  },
+  {
+    "zoneId": "zone_male_b",
+    "zoneName": "Male Campus - Zone B",
+    "cameraId": "cam_002",
+    "totalSpots": 40,
+    "availableSpots": 20,
+    "occupiedSpots": 15,
+    "reservedSpots": 5,
+    "campus": "male",
+    "building": "Science Building",
+    "coordinates": {
+      "latitude": 24.7145,
+      "longitude": 46.6760
+    },
+    "features": ["Outdoor Parking", "CCTV Monitored"],
+    "lastUpdated": "2025-01-22T09:00:00.000Z"
+  },
+  {
+    "zoneId": "zone_female_a",
+    "zoneName": "Female Campus - Zone A",
+    "cameraId": "cam_003",
+    "totalSpots": 45,
+    "availableSpots": 30,
+    "occupiedSpots": 12,
+    "reservedSpots": 3,
+    "campus": "female",
+    "building": "Main Building",
+    "coordinates": {
+      "latitude": 24.7128,
+      "longitude": 46.6745
+    },
+    "features": ["Covered Parking", "Security Guard", "Well Lit"],
+    "lastUpdated": "2025-01-22T09:00:00.000Z"
+  },
+  {
+    "zoneId": "zone_female_b",
+    "zoneName": "Female Campus - Zone B",
+    "cameraId": "cam_004",
+    "totalSpots": 35,
+    "availableSpots": 10,
+    "occupiedSpots": 20,
+    "reservedSpots": 5,
+    "campus": "female",
+    "building": "Library",
+    "coordinates": {
+      "latitude": 24.7132,
+      "longitude": 46.6738
+    },
+    "features": ["Covered Parking", "CCTV Monitored"],
+    "lastUpdated": "2025-01-22T09:00:00.000Z"
+  },
+  {
+    "zoneId": "zone_visitor",
+    "zoneName": "Visitor Parking",
+    "cameraId": "cam_005",
+    "totalSpots": 25,
+    "availableSpots": 18,
+    "occupiedSpots": 5,
+    "reservedSpots": 2,
+    "campus": "visitor",
+    "building": "Main Gate",
+    "coordinates": {
+      "latitude": 24.7140,
+      "longitude": 46.6748
+    },
+    "features": ["Guest Access", "Short Term", "CCTV Monitored"],
+    "lastUpdated": "2025-01-22T09:00:00.000Z"
+  },
+  {
+    "zoneId": "zone_male_c",
+    "zoneName": "Male Campus - Zone C",
+    "cameraId": "cam_006",
+    "totalSpots": 30,
+    "availableSpots": 0,
+    "occupiedSpots": 25,
+    "reservedSpots": 5,
+    "campus": "male",
+    "building": "Sports Complex",
+    "coordinates": {
+      "latitude": 24.7150,
+      "longitude": 46.6755
+    },
+    "features": ["Outdoor Parking", "Near Gym"],
+    "lastUpdated": "2025-01-22T09:00:00.000Z"
+  }
+]

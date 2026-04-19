@@ -1,0 +1,34 @@
+FIRESTORE INDEXES NEEDED
+========================
+
+The app is showing 0 counts because Firestore composite indexes are missing.
+
+Please create these indexes in Firebase Console:
+
+1. For Reservations (Active):
+   Collection: reservations
+   Fields: 
+   - userId (Ascending)
+   - status (Ascending)  
+   - reservedAt (Descending)
+   - __name__ (Descending)
+
+   Link from error log:
+   https://console.firebase.google.com/v1/r/project/spotwise-12f82/firestore/indexes?create_composite=ClNwcm9qZWN0cy9zcG90d2lzZS0xMmY4Mi9kYXRhYmFzZXMvKGRlZmF1bHQpL2NvbGxlY3Rpb25Hcm91cHMvcmVzZXJ2YXRpb25zL2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg4KCnJlc2VydmVkQXQQAhoMCghfX25hbWVfXxAC
+
+2. For Notifications:
+   Collection: notifications
+   Fields:
+   - userId (Ascending)
+   - createdAt (Descending)
+   - __name__ (Descending)
+
+   Link from error log:
+   https://console.firebase.google.com/v1/r/project/spotwise-12f82/firestore/indexes?create_composite=ClRwcm9qZWN0cy9zcG90d2lzZS0xMmY4Mi9kYXRhYmFzZXMvKGRlZmF1bHQpL2NvbGxlY3Rpb25Hcm91cHMvbm90aWZpY2F0aW9ucy9pbmRleGVzL18QARoKCgZ1c2VySWQQARoNCgljcmVhdGVkQXQQAhoMCghfX25hbWVfXxAC
+
+HOW TO CREATE:
+1. Click on each link above (they will auto-create the index)
+2. OR go to Firebase Console > Firestore > Indexes > Create Index manually
+3. Wait 2-5 minutes for indexes to build
+
+After creating indexes, the app should load zone data correctly.

@@ -1,0 +1,21 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Temporary: Allow public read/write for parking_zones ONLY (for adding sample data)
+    match /parking_zones/{zoneId} {
+      allow read, write: if true;
+    }
+
+    // Temporary: Allow public read/write for parking_images (for adding sample data)
+    match /parking_images/{imageId} {
+      allow read, write: if true;
+    }
+
+    // All other collections require authentication
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

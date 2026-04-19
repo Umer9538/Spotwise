@@ -1,0 +1,68 @@
+// TEMPORARY TEST RULES - For development only
+// Copy these to Firebase Console > Firestore > Rules
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Allow authenticated users to read/write all collections
+    // WARNING: Use only for development/testing!
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+
+// =====================================================
+// PRODUCTION RULES - Use these when ready for production
+// =====================================================
+
+/*
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId);
+    }
+
+    // Reservations collection
+    match /reservations/{reservationId} {
+      allow read, write: if isAuthenticated();
+    }
+
+    // Parking zones collection
+    match /parking_zones/{zoneId} {
+      allow read: if isAuthenticated();
+
+      match /spots/{spotId} {
+        allow read: if isAuthenticated();
+      }
+    }
+
+    // Parking history collection
+    match /parking_history/{historyId} {
+      allow read, write: if isAuthenticated();
+    }
+
+    // Notifications collection
+    match /notifications/{notificationId} {
+      allow read, write: if isAuthenticated();
+    }
+  }
+}
+*/
